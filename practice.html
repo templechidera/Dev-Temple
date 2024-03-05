@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+             margin:0;
+             padding:0;
+             box-sizing: border-box; 
+            }
+
+           img{
+            max-width: 200px;
+            height:100px;
+           }
+           .header{
+            display:flex;
+            justify-content: space-between;
+           }
+           h2{
+            margin-top: 20px;
+            color:#144F17;
+           }
+           .span{
+            font-size: medium;
+            margin-left: 550px;
+            color: #7C392C;
+           }
+           ul{
+            background-color: #07380a;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            color: white;
+            list-style-type: none;
+            font-weight: 400;
+            margin-top: 20px;
+           }
+           .main{
+            max-width: 100%;
+            margin-top: 30px;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           }
+           h3{
+            color:#6e2213;
+            margin-bottom: 40px;
+           }
+           .layout{
+            margin-left: 20px;
+            padding-left: 5px;
+            width: 300px;
+            height: 30px;
+            background-color: #DFDFDF;
+            color: black;
+            border-style: none;
+            margin-top: 20px;
+           }
+           button{
+            width:200px;
+            height: 30px;
+            margin-left: 60px;
+            background-color: #144F17;
+            color: white;
+            border-style: none;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-top-left-radius: 8px;
+            margin-bottom: 8px;
+            font-weight: 600; 
+            font-size: 14px;
+           }
+
+           .p{
+            color: #07380a;
+            font-weight: 600;
+            font-size: 18px;
+           }
+        </style>
+    </head>
+<body>
+    <header class="header">
+        <img src="images\Coat_of_arms_of_Nigeria.png">
+        <h2>JOINT ADMISSIONS AND MATRICULATION BOARD RESULT PORTAL<br><span class="span">enhancing academic excellence</span></h2>
+        <img src="images\JAMB-logo.jpg">
+    </header>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Services</li>
+            <li>CAPS</li>
+            <li>News</li>
+            <li>Contact</li>
+            <li>Privacy Policy</li>
+
+        </ul>
+    </nav>
+    
+<div class="main">
+    <h3>Welcome To JAMB Result Portal</h3>
+    <form>
+      <input class="layout" type="number" id="input" placeholder="Enter your seat number"><br><br>
+      <button onclick="myFunction()">Submit</button>
+      <p id="result" class="p"></p>
+      <input class="layout" id="regnumber" placeholder="Input your reg number "><br><br>
+      <button onclick="JambScore()">Submit</button>
+      <p id="display" class="p"></p>
+   </form>
+</div>
+<script> 
+document.addEventListener("submit", function(e){
+    e.preventDefault()
+}
+)
+function myFunction(){
+    let int=document.getElementById("input").value;
+    let output="";
+   if(int==100){
+    output="Dear Emmanuel Temple Chidera, your reg number is: 2024100ET";
+    }else if(int==200){
+    output="Dear Timileyin Temitope  victor, your reg number is: 2024200TT";
+    }else if(int==300){
+        output="Dear Bashiru Ahmed Musa, your reg number is: 2024300BA";
+    }else if(int==170){
+        output="Dear Nnamdi Eugene Prosper, your reg number is: 2024170NE";
+    }else if(int==115){
+        output="Dear Emmanuel Divine Chisom, your reg number is: 2024115ED"
+    }else{
+        output="user not found"
+    }
+    document.getElementById("result").innerHTML=output;
+}
+const JambInfo1={
+UserName:"Emmanuel Temple Chidera",
+RegNo:"2024100ET",
+English:67,
+Mathematics:77,
+Chemistry:80,
+Physics:85,
+};
+JambInfo1.total=JambInfo1.English + JambInfo1.Mathematics + JambInfo1.Chemistry +JambInfo1.Physics;
+
+
+const JambInfo2={
+UserName:"Timileyin Temitope  victor",
+RegNo:"2024200TT",
+English:77,
+Mathematics:85,
+Chemistry:60,
+Physics:85
+};
+JambInfo2.total=JambInfo2.English + JambInfo2.Mathematics + JambInfo2.Chemistry +JambInfo2.Physics;
+
+
+
+const JambInfo3={
+UserName:"Bashiru Ahmed Musa",
+RegNo:"2024300BA",
+English:50,
+Mathematics:57,
+Account:60,
+Commerce:75
+};
+JambInfo3.total=JambInfo3.English + JambInfo3.Mathematics + JambInfo3.Account +JambInfo3.Commerce;
+
+
+const JambInfo4={
+UserName:"Nnamdi Eugene Prosper",
+RegNo:"2024170NE",
+English:60,
+Government:77,
+CRS:70,
+literature:65
+};
+JambInfo4.total=JambInfo4.English + JambInfo4.Government + JambInfo4.literature +JambInfo4.CRS;
+
+const JambInfo5={
+UserName:"Emmanuel Divine Chisom",
+RegNo:"2024115ED",
+English:75,
+Biology:77,
+Chemistry:90,
+Physics:80
+};
+JambInfo5.total=JambInfo5.English + JambInfo5.Chemistry + JambInfo5.Biology +JambInfo5.Physics;
+function JambScore(){
+let regNum=document.getElementById("regnumber").value;
+
+let score;
+if (regNum === "2024100ET") {
+        score = "Dear " + JambInfo1.UserName + " , your JAMB SCORE are as follows: " +
+            "English: " + JambInfo1.English + ", Mathematics: " + JambInfo1.Mathematics +
+            ", Chemistry: " + JambInfo1.Chemistry + ", Physics: " + JambInfo1.Physics +
+            ", your aggregate is " + JambInfo1.total;
+        document.getElementById("display").innerHTML = score;
+    } else if(regNum === "2024200TT"){
+        score = "Dear " + JambInfo2.UserName + " , your JAMB SCORE are as follows: " +
+            "English: " + JambInfo2.English + ", Mathematics: " + JambInfo2.Mathematics +
+            ", Chemistry: " + JambInfo2.Chemistry + ", Physics: " + JambInfo2.Physics +
+            ", your aggregate is " + JambInfo2.total;
+        document.getElementById("display").innerHTML = score;
+    }  else if(regNum === "2024300BA"){
+        score = "Dear " + JambInfo3.UserName + " , your JAMB SCORE are as follows: " +
+            "English: " + JambInfo3.English + ", Mathematics: " + JambInfo3.Mathematics +
+            ", Account: " + JambInfo3.Account + ", Commerce: " + JambInfo3.Commerce +
+            ", your aggregate is " + JambInfo3.total;
+        document.getElementById("display").innerHTML = score;
+    } else if(regNum === "2024170NE"){
+        score = "Dear " + JambInfo4.UserName + " , your JAMB SCORE are as follows: " +
+            "English: " + JambInfo4.English + ", Government: " + JambInfo4.Government +
+            ", Literature: " + JambInfo3.literature + ", CRS: " + JambInfo4.CRS +
+            ", your aggregate is " + JambInfo4.total;
+        document.getElementById("display").innerHTML = score;     
+    }else if(regNum === "2024115ED"){
+        score = "Dear " + JambInfo5.UserName + " , your JAMB SCORE are as follows: " +
+            "English: " + JambInfo5.English + ", Biology: " + JambInfo5.Biology +
+            ", Chemistry: " + JambInfo5.Chemistry + ", Physics: " + JambInfo5.Physics +
+            ", your aggregate is " + JambInfo5.total;
+        document.getElementById("display").innerHTML = score;
+}else{
+    score="This reg number is invalid. Crosscheck and try again";
+    document.getElementById("display").innerHTML = score;
+}
+}
+</script>
+</body>
+</html>
